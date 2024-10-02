@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import JobPost from "./JobPost";
+import SearchBar from "./SearchBar";
 
 export default function JobBoard() {
 
     const apiKey = import.meta.env.VITE_API_KEY
+    const baseURL = "/api/jobs/"
 
     const [data, setData] = useState(null)
-    const [url, setUrl] = useState("/api/jobs/?search=software")
+    const [url, setUrl] = useState(baseURL)
+
+    // "/api/jobs/?search=software"
     useEffect(() => {
         fetch(url, {
             headers: {
@@ -24,6 +28,7 @@ export default function JobBoard() {
 
     return (
         <div>
+            <SearchBar />
             <h1>Job Board</h1>
             {data ? (
                 <div>
