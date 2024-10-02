@@ -28,20 +28,18 @@ export default function JobBoard() {
 
     return (
         <div>
-            <SearchBar />
             <h1>Job Board</h1>
+            <SearchBar />
             {data ? (
                 <div>
                     {data.results.map((job) => (
                         <JobPost key={job.id} {...job}></JobPost>
                     ))}
+                    {data.prev && <a href={data.prev}>Previous</a>}
+                    {data.next && <a href={data.next}>Next</a>}
                 </div>
             ) : <div>Loading...</div>}
+            
         </div>
     )
 }
-
-
-// <div>{data.results[0].title}</div>
-// <button src={data.prev}>Prev</button>
-// <button src={data.next}>Next</button>
