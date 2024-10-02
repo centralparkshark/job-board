@@ -6,7 +6,7 @@ export default function JobBoard() {
     const apiKey = import.meta.env.VITE_API_KEY
 
     const [data, setData] = useState(null)
-    const [url, setUrl] = useState("/api/jobs/?search=react&date_range__gte=7")
+    const [url, setUrl] = useState("/api/jobs/?search=software")
     useEffect(() => {
         fetch(url, {
             headers: {

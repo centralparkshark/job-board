@@ -22,12 +22,21 @@ export default function JobPost(props) {
     return (
         <>
             {daysOld ? (
-                <div>
-                    <h2>{props.role}</h2>
-                    <h4>{props.company_name}</h4>
+                <div className="card">
+                    <div className="header">
+                        <h2>{props.role}</h2>
+                        <h3>{props.company_name}</h3>
+                    </div>
                     {props.location && <p>Location: {props.location}</p>}
-                    <div>Posted: {daysOld} days ago</div>
-                    <button href={props.url}>Apply</button>
+                    <div className="postAge">{daysOld} days ago</div>
+                    <div className="keywordHolder">
+                        {props.keywords.map((word) => (
+                            <div key="" className="keyword">{word}</div>
+                        ))}
+                    </div>
+                    <div className="buttonHolder">
+                        <a href={props.url}>Apply</a>
+                    </div>
                 </div>
             ) : <></>}
         </>
