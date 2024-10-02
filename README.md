@@ -20,7 +20,7 @@
 - [ ] Use local storage
  
 ## Unsolved Problems
-- Make search bar search
+- Make search bar search (working on handlesubmit)
 - add save button to add to local storage (can be pulled later)
 - add search filters (also could be put in local storage but not so important)
 - advanced search to look for years of experience etc
