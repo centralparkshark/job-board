@@ -24,19 +24,22 @@ export default function JobBoard() {
         .catch(error => {
             console.log(error)
         })
-    }, [url]);
+    }, [apiKey, url]);
+
+
+    function handleSubmit(search) {
+        setUrl(baseURL + search)
+    }
 
     return (
         <div>
             <h1>Job Board</h1>
-            <SearchBar />
+            <SearchBar onSearch={handleSubmit}/>
             {data ? (
                 <div>
-                    {data.results.map((job) => (
-                        <JobPost key={job.id} {...job}></JobPost>
-                    ))}
-                    {data.prev && <a href={data.prev}>Previous</a>}
-                    {data.next && <a href={data.next}>Next</a>}
+                    {data.results.length > 0 ? (data.results.map((job) => (
+                        <JobPost key={job.id} {...job} onSearch={handleSubmit}></JobPost>
+                    ))) : <div>No results found.</div>}
                 </div>
             ) : <div>Loading...</div>}
             

@@ -1,11 +1,16 @@
 import { useState } from "react"
 
-export default function SearchBar() {
+export default function SearchBar(props) {
     
     const [value, setValue] = useState("")
 
     function handleChange(e) {
         setValue(e.target.value);
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onSearch(value)
     }
 
     return (
