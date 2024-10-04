@@ -28,6 +28,7 @@ export default function JobBoard() {
 
 
     function handleSubmit(search) {
+        setView("Job Board")
         setUrl(baseURL + search)
     }
 
