@@ -27,10 +27,15 @@ export default function JobPost(props) {
         props.onSearch(word)
     }
 
+    function saveToLocal(id) {
+        console.log(id)
+    }
+
     return (
         <>
             {daysOld ? (
                 <div className="card" key={props.id}>
+                    <div className="saveBanner" onClick={() => saveToLocal(props.id)}></div>
                     <div className="header">
                         <h2>{props.role}</h2>
                         <h3>{props.company_name}</h3>

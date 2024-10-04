@@ -10,7 +10,6 @@ export default function JobBoard() {
     const [data, setData] = useState(null)
     const [url, setUrl] = useState("/api/jobs/")
 
-    // "/api/jobs/?search=software"
     useEffect(() => {
         fetch(url, {
             headers: {

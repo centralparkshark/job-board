@@ -54,3 +54,18 @@ h3 {
   background-color: rgb(38, 33, 59);
   cursor: pointer;
 }
+
+.saveBanner {
+  background-color: rgb(0, 166, 255);
+  height: 50px;
+  width: 30px;
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  box-shadow: 6px 4px 6px rgba(1, 23, 49, 0.2);
+  visibility: hidden;
+}
+
+.card:hover > .saveBanner {
+  visibility: visible;
+}
