@@ -1,4 +1,3 @@
-import saveToLocal from "./SavedPosts";
 
 let now = new Date();
 now = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -17,6 +16,14 @@ function lessThanAWeek(jobDate) {
     } else {
         return false;
     }
+}
+
+function saveToLocal(id) {
+    console.log(id)
+    let existingSave = JSON.parse(localStorage.getItem("savedPosts"))
+    if (!existingSave) existingSave = [];
+    existingSave.push(id)
+    localStorage.setItem("savedPosts", JSON.stringify(existingSave))
 }
 
 export default function Post(props) {

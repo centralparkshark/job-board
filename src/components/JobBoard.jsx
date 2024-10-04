@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import JobPosts from "./JobPosts";
-import SavedPosts from "./SavedPosts";
+import Post from "./Post";
 import SearchBar from "./SearchBar";
 
 export default function JobBoard() {
@@ -35,7 +34,12 @@ export default function JobBoard() {
     function selectView(newView) {
         setView(newView)
         if (newView == "Saved Jobs") {
-            //
+            let savedPosts = JSON.parse(localStorage.getItem("savedPosts"))
+            let newData = {}
+            newData.results = data.results.filter(job => savedPosts.includes(job.id))
+            setData(newData)
+        } else {
+            setUrl(baseURL)
         }
     }
 
@@ -51,7 +55,9 @@ export default function JobBoard() {
             
             {data ? (
                <>
-                {view == "Job Board" ? <JobPosts {...data} onSearch={handleSubmit}>this is where job posts go</JobPosts>: <SavedPosts onSearch={handleSubmit} {...data}>this is where saved posts go</SavedPosts> }
+                {data.results.length > 0 ? (data.results.map((job) => (
+                <Post key={job.id} {...job} onSearch={handleSubmit}></Post>
+            ))) : <div>No results found.</div>}
                </>
             ) : <div>Loading...</div>}
             
