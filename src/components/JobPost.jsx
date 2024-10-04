@@ -1,3 +1,5 @@
+import saveToLocal from "./SavedPosts";
+
 let now = new Date();
 now = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
@@ -25,10 +27,6 @@ export default function JobPost(props) {
 
     function handleClick(word) {
         props.onSearch(word)
-    }
-
-    function saveToLocal(id) {
-        console.log(id)
     }
 
     return (
