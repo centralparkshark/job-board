@@ -19,7 +19,7 @@ function lessThanAWeek(jobDate) {
     }
 }
 
-export default function JobPost(props) {
+export default function Post(props) {
     let daysOld = lessThanAWeek(props.date_posted)
     
     let keywordIndex = 0;

@@ -23,9 +23,10 @@ The site will only show jobs that have been posted in the last two weeks.
 
 ## Bonus
 - [ ] Use a complex user interface module (ex: carousel, drag and drop, sticky nav, tooltips, etc)
-- [ ] Use local storage
+- [X] Use local storage
  
 ## Future Goals
-- add save button to add to local storage (can be pulled later)
+- check to make sure something isn't already saved to local storage before saving again
 - add search filters (also could be put in local storage but not so important)
 - advanced search to look for years of experience etc
+- click company name to view other jobs from same company

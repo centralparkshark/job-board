@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import JobPost from "./JobPost";
+import JobPosts from "./JobPosts";
+import SavedPosts from "./SavedPosts";
 import SearchBar from "./SearchBar";
 
 export default function JobBoard() {
@@ -9,6 +10,7 @@ export default function JobBoard() {
 
     const [data, setData] = useState(null)
     const [url, setUrl] = useState("/api/jobs/")
+    const [view, setView] = useState("Job Board")
 
     useEffect(() => {
         fetch(url, {
@@ -30,16 +32,27 @@ export default function JobBoard() {
         setUrl(baseURL + search)
     }
 
+    function selectView(newView) {
+        setView(newView)
+        if (newView == "Saved Jobs") {
+            //
+        }
+    }
+
     return (
         <div>
-            <h1>Job Board</h1>
-            <SearchBar onSearch={handleSubmit}/>
+            {view == "Job Board" ? 
+            <button onClick={() => selectView("Saved Jobs")}>View Saved Jobs</button> : 
+            <button onClick={() => selectView("Job Board")}>View Job Board</button>}
+            
+            <h1>{view}</h1>
+
+            {view == "Job Board" ? <SearchBar onSearch={handleSubmit}/> : ''}
+            
             {data ? (
-                <div>
-                    {data.results.length > 0 ? (data.results.map((job) => (
-                        <JobPost key={job.id} {...job} onSearch={handleSubmit}></JobPost>
-                    ))) : <div>No results found.</div>}
-                </div>
+               <>
+                {view == "Job Board" ? <JobPosts {...data} onSearch={handleSubmit}>this is where job posts go</JobPosts>: <SavedPosts onSearch={handleSubmit} {...data}>this is where saved posts go</SavedPosts> }
+               </>
             ) : <div>Loading...</div>}
             
         </div>
