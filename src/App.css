@@ -69,3 +69,12 @@ h3 {
 .card:hover > .saveBanner {
   visibility: visible;
 }
+
+button {
+  margin: 1rem;
+}
+
+input[type="text"] {
+  height: 2rem;
+  padding: 0 .5rem
+}
