@@ -7,10 +7,10 @@ export default function JobBoard() {
     const apiKey = import.meta.env.VITE_API_KEY
     // const API_URL = import.meta.env.VITE_API_URL
     //const API_URL = import.meta.env.VITE_DEV_URL
-    const baseURL = `/api/jobs/?search=`
+    const baseURL = `https://cors-anywhere.herokuapp.com/https://findwork.dev/api/jobs/?search=`
 
     const [data, setData] = useState(null)
-    const [url, setUrl] = useState(`/api/jobs/`)
+    const [url, setUrl] = useState(`https://cors-anywhere.herokuapp.com/https://findwork.dev/api/jobs/`)
     const [view, setView] = useState("Job Board")
 
     useEffect(() => {

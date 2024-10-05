@@ -1,5 +1,8 @@
 ## Link to Live Site
-https://deluxe-lolly-9266aa.netlify.app
+https://job-board-mauve.vercel.app/
+
+## Problems
+- CORS, deployed website won't work without a backend. 
 
 ## Usage Instructions
 Navigate to live site. Use either search bar or click a keyword to search for similar jobs. Click apply on any job posting to navigate to a page that will allow you to apply. You can also hover over any job post and click the banner to save it to your local storage which you can then view by clicking the button at the top. This will render a different view and show your saved posts.
