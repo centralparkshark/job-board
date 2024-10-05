@@ -10,6 +10,7 @@ export default defineConfig({
         target: 'https://findwork.dev',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/api'),
+
         configure: (proxy, options) => {
           proxy.on('error', (err, _req, _res) => {
            console.log('error', err);
@@ -19,7 +20,8 @@ export default defineConfig({
           });
           proxy.on('proxyRes', (proxyRes, req, _res) => {
            console.log('Response received from target:', proxyRes.statusCode, req.url);
-          });
+          })
+        },
       }
     }
   }
