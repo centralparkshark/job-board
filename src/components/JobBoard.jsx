@@ -6,6 +6,7 @@ export default function JobBoard() {
 
     const apiKey = import.meta.env.VITE_API_KEY
     const API_URL = import.meta.env.VITE_API_URL
+    //const API_URL = import.meta.env.VITE_DEV_URL
     const baseURL = `${API_URL}/api/jobs/?search=`
 
     const [data, setData] = useState(null)
@@ -20,8 +21,12 @@ export default function JobBoard() {
                 'Allow': 'GET, HEAD, OPTIONS'
             }
         })
-        .then(response => response.json())
-        .then(data => setData(data))
+        .then(response => {
+            console.log("Response:", response)
+            return response.json()})
+        .then(data => {
+            console.log('Data:', data)
+            setData(data)})
         .catch(error => {
             console.log(error)
         })
