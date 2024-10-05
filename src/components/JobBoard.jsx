@@ -5,10 +5,11 @@ import SearchBar from "./SearchBar";
 export default function JobBoard() {
 
     const apiKey = import.meta.env.VITE_API_KEY
-    const baseURL = "/api/jobs/?search="
+    const API_URL = import.meta.env.VITE_API_URL
+    const baseURL = `${API_URL}/api/jobs/?search=`
 
     const [data, setData] = useState(null)
-    const [url, setUrl] = useState("/api/jobs/")
+    const [url, setUrl] = useState(`${API_URL}/api/jobs/`)
     const [view, setView] = useState("Job Board")
 
     useEffect(() => {
