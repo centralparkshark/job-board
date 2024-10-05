@@ -18,7 +18,8 @@ export default function JobBoard() {
             headers: {
                 'Authorization': `Token ${apiKey}`,
                 'Content-Type': 'application/json',
-                'Allow': 'GET, HEAD, OPTIONS'
+                'Allow': 'GET, HEAD, OPTIONS',
+                "Access-Control-Allow-Origin": "*",
             }
         })
         .then(response => {
