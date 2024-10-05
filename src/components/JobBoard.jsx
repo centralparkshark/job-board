@@ -5,12 +5,12 @@ import SearchBar from "./SearchBar";
 export default function JobBoard() {
 
     const apiKey = import.meta.env.VITE_API_KEY
-    const API_URL = import.meta.env.VITE_API_URL
+    // const API_URL = import.meta.env.VITE_API_URL
     //const API_URL = import.meta.env.VITE_DEV_URL
-    const baseURL = `${API_URL}/api/jobs/?search=`
+    const baseURL = `/api/jobs/?search=`
 
     const [data, setData] = useState(null)
-    const [url, setUrl] = useState(`${API_URL}/api/jobs/`)
+    const [url, setUrl] = useState(`/api/jobs/`)
     const [view, setView] = useState("Job Board")
 
     useEffect(() => {
@@ -19,7 +19,6 @@ export default function JobBoard() {
                 'Authorization': `Token ${apiKey}`,
                 'Content-Type': 'application/json',
                 'Allow': 'GET, HEAD, OPTIONS',
-                "Access-Control-Allow-Origin": "*",
             }
         })
         .then(response => {
