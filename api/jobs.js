@@ -1,6 +1,13 @@
 export default async function handler(req, res) {
+    const apiKey = import.meta.env.VITE_API_KEY;
     try {
-      const response = await fetch('https://findwork.dev/api/jobs/');
+      const response = await fetch('https://findwork.dev/api/jobs/', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Token ${apiKey}`, // Set the appropriate authorization header
+          'Content-Type': 'application/json',
+        },
+      });
   
       if (!response.ok) {
         res.status(response.status).json({ error: 'Failed to fetch data' });
